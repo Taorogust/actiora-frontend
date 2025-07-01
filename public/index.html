@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="h-full" lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>DataPort Wallet™ v2.0</title>
+    <link rel="icon" href="/media/app/dataport-favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="DataPort Wallet™ v2.0 — Plataforma SaaS todo-en-uno para identidad digital, compliance e IoT." />
+    <meta name="keywords" content="DataPort, Wallet, identidad, compliance, IoT, eIDAS, facturación" />
+    <meta name="author" content="DataPort Inc." />
+    <meta name="theme-color" content="#1E3A8A" />
+
+    <!-- Web App Manifest (opcional PWA) -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Fuentes -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700&display=swap"
+    />
+
+    <!-- Modo oscuro según preferencia o configuración previa -->
+    <style>
+      .dark body {
+        background-color: hsl(240, 10%, 4%);
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem('theme') || 'system';
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const isDark = theme === 'dark' || (theme === 'system' && prefersDark);
+          if (isDark) document.documentElement.classList.add('dark');
+          else document.documentElement.classList.remove('dark');
+        } catch (e) {
+          console.error('No se pudo aplicar el tema:', e);
+        }
+      })();
+    </script>
+  </head>
+  <body class="text-foreground bg-background flex h-full text-base antialiased">
+    <div id="root" class="flex grow"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
